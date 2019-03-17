@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
+import coffeeStore from '../stores/coffeeStore'
 // NativeBase Components
 import {
   Thumbnail,
@@ -12,42 +13,42 @@ import {
   ListItem,
   Picker,
   Content
-} from "native-base";
+} from 'native-base'
 
 // Style
-import styles from "./styles";
+import styles from './styles'
 
-//List
-import coffeeshops from "../CoffeeList/list";
+// List
+import coffeeshops from '../CoffeeList/list'
 
 class CoffeeDetail extends Component {
   state = {
-    drink: "Cappuccino",
-    option: "Small"
-  };
+    drink: 'Cappuccino',
+    option: 'Small'
+  }
 
   changeDrink = value => {
     this.setState({
       drink: value
-    });
-  };
+    })
+  }
 
   changeOption = value => {
     this.setState({
       option: value
-    });
-  };
+    })
+  }
 
-  render() {
-    if (!coffeeshops) return <Content />;
-    const coffeeshop = coffeeshops[0];
+  render () {
+    if (!coffeeStore.coffeeshops) return <Content />
+    const coffeeshop = coffeeStore.coffeeshops[0]
     return (
       <Content>
         <List>
           <ListItem style={styles.top}>
             <Left>
               <Text style={styles.text}>
-                {coffeeshop.name + "\n"}
+                {coffeeshop.name + '\n'}
                 <Text note>{coffeeshop.location}</Text>
               </Text>
             </Left>
@@ -60,27 +61,27 @@ class CoffeeDetail extends Component {
             <Left>
               <Picker
                 note
-                mode="dropdown"
+                mode='dropdown'
                 style={{ width: 150 }}
                 selectedValue={this.state.drink}
                 onValueChange={this.changeDrink}
               >
-                <Picker.Item label="Cappuccino" value="Cappuccino" />
-                <Picker.Item label="Latte" value="Latte" />
-                <Picker.Item label="Espresso" value="Espresso" />
+                <Picker.Item label='Cappuccino' value='Cappuccino' />
+                <Picker.Item label='Latte' value='Latte' />
+                <Picker.Item label='Espresso' value='Espresso' />
               </Picker>
             </Left>
             <Body>
               <Picker
                 note
-                mode="dropdown"
+                mode='dropdown'
                 style={{ width: 150 }}
                 selectedValue={this.state.option}
                 onValueChange={this.changeOption}
               >
-                <Picker.Item label="Small" value="Small" />
-                <Picker.Item label="Medium" value="Medium" />
-                <Picker.Item label="Large" value="Large" />
+                <Picker.Item label='Small' value='Small' />
+                <Picker.Item label='Medium' value='Medium' />
+                <Picker.Item label='Large' value='Large' />
               </Picker>
             </Body>
           </ListItem>
@@ -89,8 +90,8 @@ class CoffeeDetail extends Component {
           </Button>
         </List>
       </Content>
-    );
+    )
   }
 }
 
-export default CoffeeDetail;
+export default CoffeeDetail

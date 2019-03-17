@@ -1,16 +1,16 @@
-import starbucks from "../../assets/images/starbucks.png";
-import costa from "../../assets/images/costa.png";
-import carribu from "../../assets/images/carribu.png";
-import starbucks2 from "../../assets/images/starbucks.jpg";
-import costa2 from "../../assets/images/costa.jpg";
-import carribu2 from "../../assets/images/carribu.jpg";
+import starbucks from '../../assets/images/starbucks.png'
+import costa from '../../assets/images/costa.png'
+import carribu from '../../assets/images/carribu.png'
+import starbucks2 from '../../assets/images/starbucks.jpg'
+import costa2 from '../../assets/images/costa.jpg'
+import carribu2 from '../../assets/images/carribu.jpg'
 
 var list = [
   {
     id: 1,
-    name: "StarBucks",
-    location: "Salmiya",
-    distance: "5 kilometers",
+    name: 'StarBucks',
+    location: 'Salmiya',
+    distance: '5 kilometers',
     img: starbucks,
     background: starbucks2,
     lat: 29.32825632,
@@ -18,9 +18,9 @@ var list = [
   },
   {
     id: 2,
-    name: "Costa",
-    location: "Salmiya",
-    distance: "2.1 kilometers",
+    name: 'Costa',
+    location: 'Salmiya',
+    distance: '2.1 kilometers',
     img: costa,
     background: costa2,
     lat: 29.33763773,
@@ -29,13 +29,13 @@ var list = [
 
   {
     id: 3,
-    name: "Caribu",
-    location: "Salmiya",
-    distance: "500 meters",
+    name: 'Caribu',
+    location: 'Salmiya',
+    distance: '500 meters',
     img: carribu,
     background: carribu2,
     lat: 29.31753322,
     lng: 47.9079404
   }
-];
-export default list;
+]
+export default list

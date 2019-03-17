@@ -1,28 +1,30 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
 // NativeBase Components
-import { List, Content } from "native-base";
+import { List, Content } from 'native-base'
 
 // Store
-import coffeeshops from "./list";
+//import coffeeshops from './list'
+
+import coffeeStore from '../stores/coffeeStore'
 
 // Component
-import CoffeeItem from "./CoffeeItem";
+import CoffeeItem from './CoffeeItem'
 
 class CoffeeList extends Component {
-  render() {
-    let shops;
-    if (coffeeshops) {
-      shops = coffeeshops.map(coffeeShop => (
+  render () {
+    let shops
+    if (coffeeStore.coffeeshops) {
+      shops = coffeeStore.coffeeshops.map(coffeeShop => (
         <CoffeeItem coffeeShop={coffeeShop} key={coffeeShop.id} />
-      ));
+      ))
     }
     return (
       <Content>
         <List>{shops}</List>
       </Content>
-    );
+    )
   }
 }
 
-export default CoffeeList;
+export default CoffeeList
