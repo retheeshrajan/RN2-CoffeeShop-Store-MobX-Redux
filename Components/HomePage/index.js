@@ -21,7 +21,8 @@ class HomePage extends Component {
         <Header style={styles.transparent} />
         {/* {<CoffeeCart />} */}
         {/* <CoffeeDetail /> */}
-        <Login />
+        {/* <Login /> */}
+        <CoffeeList />
       </Container>
     )
   }
