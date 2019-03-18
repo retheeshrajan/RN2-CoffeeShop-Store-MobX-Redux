@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-
+import { observer } from 'mobx-react'
 // NativeBase Components
 import { List, Content } from 'native-base'
 
 // Store
-//import coffeeshops from './list'
+// import coffeeshops from './list'
 
 import coffeeStore from '../stores/coffeeStore'
 
@@ -27,4 +27,4 @@ class CoffeeList extends Component {
   }
 }
 
-export default CoffeeList
+export default observer(CoffeeList)
