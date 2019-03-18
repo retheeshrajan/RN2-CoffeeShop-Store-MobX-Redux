@@ -1,21 +1,28 @@
 import { Component } from 'react'
 import axios from 'axios'
 import { decorate, observable } from 'mobx'
+
 class CoffeeStore extends Component {
-  coffeeshops = []
+  coffeeshops = null
   coffeeshop = null
   loading = true
 
   fetchAllCoffeeShops = async () => {
-    const res = await axios.get('http://coffee.q8fawazo.me/api/?format=json')
-    this.coffeeshops = res.data
-    this.loading = false
+    try {
+      const res = await axios.get('http://coffee.q8fawazo.me/api/?format=json')
+      const data = res.data
+      this.coffeeshops = data
+      this.loading = false
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
 
 decorate(CoffeeStore, {
   coffeeshops: observable,
-  coffeeshop: observable
+  coffeeshop: observable,
+  loading: observable
 })
 
 const coffeeStore = new CoffeeStore()

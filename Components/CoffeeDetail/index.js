@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { observer } from 'mobx-react'
 import coffeeStore from '../stores/coffeeStore'
 // NativeBase Components
 import {
@@ -12,7 +12,8 @@ import {
   List,
   ListItem,
   Picker,
-  Content
+  Content,
+  Spinner
 } from 'native-base'
 
 // Style
@@ -40,8 +41,8 @@ class CoffeeDetail extends Component {
   }
 
   render () {
+    if (coffeeStore.loading) return <Spinner color='white' />
     const coffeeshop = coffeeStore.coffeeshops[0]
-    if (!coffeeshop) return <Content />
     return (
       <Content>
         <List>
@@ -54,7 +55,7 @@ class CoffeeDetail extends Component {
             </Left>
             <Body />
             <Right>
-              <Thumbnail bordered source={coffeeshop.img} />
+              <Thumbnail bordered source={{ uri: `${coffeeshop.img}` }} />
             </Right>
           </ListItem>
           <ListItem style={{ borderBottomWidth: 0 }}>
@@ -94,4 +95,4 @@ class CoffeeDetail extends Component {
   }
 }
 
-export default CoffeeDetail
+export default observer(CoffeeDetail)
