@@ -19,7 +19,7 @@ import {
 import styles from './styles'
 
 // List
-import coffeeshops from '../CoffeeList/list'
+// import coffeeshops from '../CoffeeList/list'
 
 class CoffeeDetail extends Component {
   state = {
@@ -40,8 +40,8 @@ class CoffeeDetail extends Component {
   }
 
   render () {
-    if (!coffeeStore.coffeeshops) return <Content />
     const coffeeshop = coffeeStore.coffeeshops[0]
+    if (!coffeeshop) return <Content />
     return (
       <Content>
         <List>
